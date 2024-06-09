@@ -4,7 +4,6 @@
   "description": "A simple authentication API using Express.js and Postgres DB",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "license": "MIT",

@@ -1,16 +1,20 @@
-module.exports = app => {
-    const users = require("../controllers/user.controller.js");
-    const {_, auth} = require('../middlewares');
+module.exports = (app) => {
+	const users = require('../controllers/user.controller.js');
+	const { _, auth } = require('../middlewares');
 
-    var router = require("express").Router();
+	var router = require('express').Router();
 
-    router.post("/signup", users.signup);
+	router.get('/hello', (req, res) => {
+		res.send({ message: 'hello' });
+	});
 
-    router.post("/login", users.login);
+	router.post('/signup', users.signup);
 
-    router.post("/changepassword", auth, users.changepassword);
+	router.post('/login', users.login);
 
-    router.post("/verifypassword", auth, users.verifypassword);
+	router.post('/changepassword', auth, users.changepassword);
 
-    app.use('/user', router);
+	router.post('/verifypassword', auth, users.verifypassword);
+
+	app.use('/user', router);
 };
